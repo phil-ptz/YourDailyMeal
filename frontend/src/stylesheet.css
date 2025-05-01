@@ -1,0 +1,11 @@
+.recipe {
+    background-color: #282c34;
+    text-align: center;
+    color: white;
+    display: flex;
+    height: 100vh;
+}
+
+.header {
+    padding: 10px;
+}
