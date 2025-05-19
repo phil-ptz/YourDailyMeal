@@ -3,7 +3,8 @@
     text-align: center;
     color: white;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 50px;
 }
 
 .header {
