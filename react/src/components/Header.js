@@ -1,14 +1,27 @@
-import React from 'react';
-import '../stylesheet.css'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
+
+    const navigate = useNavigate();
+
+    const handleHistoryClick = () => {
+        navigate("/history");
+    };
+
+    const handleTitleClick = () => {
+        navigate("/");
+    };
+
     return (
         <header className="header">
-            <div className="container">
-                <h1>YourDailyMeal</h1>
-            </div>
+            <div className="header-title" onClick={handleTitleClick} style={{ cursor: "pointer" }}>YourDailyMeal</div>
+            <button className="history-button" onClick={handleHistoryClick}>
+                Vergangene Tage
+            </button>
         </header>
     );
-}
+};
 
 export default Header;

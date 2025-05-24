@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
+
 import Header from "./components/Header";
-import Recipe from "./components/Recipe";
+import Meal from "./components/Meal";
+import History from "./components/History";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <Header />
-      <Recipe />
-  </React.StrictMode>
+    <React.StrictMode>
+        <Router>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Meal />} />
+                <Route path="/history" element={<History />} />
+            </Routes>
+        </Router>
+    </React.StrictMode>
 );
