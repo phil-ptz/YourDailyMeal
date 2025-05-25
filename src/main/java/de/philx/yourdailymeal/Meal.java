@@ -2,6 +2,8 @@ package de.philx.yourdailymeal;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.time.LocalDate;
+
 
 @Data
 @Entity
@@ -19,4 +21,5 @@ public class Meal {
     private String strMealThumb;
     private String strYoutube;
 
+    private LocalDate createdAt;
 }
