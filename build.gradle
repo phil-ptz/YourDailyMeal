@@ -40,23 +40,37 @@ tasks.named('test') {
 // Auto Frontend Build
 import org.apache.tools.ant.taskdefs.condition.Os
 
-task buildFrontend(type: Exec) {
-    workingDir '/react'
+import java.io.ByteArrayOutputStream
 
-    String npm = 'npm';
+task buildFrontend {
+    def npmPath = new ByteArrayOutputStream()
 
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        npm = 'npm.cmd'
+    exec {
+        commandLine 'which', 'npm'
+        standardOutput = npmPath
     }
 
-    commandLine npm, 'install'
-    commandLine npm, 'run', 'build'
+    def npm = npmPath.toString().trim()
+    if (!file(npm).exists()) {
+        throw new Exception("npm wurde nicht gefunden unter: ${npm}")
+    }
+
+    doLast {
+        exec {
+            workingDir = file("react")
+            commandLine npm, 'install'
+        }
+        exec {
+            workingDir = file("react")
+            commandLine npm, 'run', 'build'
+        }
+    }
 }
 
 task copyFrontend(type: Copy) {
     dependsOn buildFrontend
-    from '/react/build'
-    into '/src/main/resources/static'
+    from 'react/build'
+    into 'src/main/resources/static'
 }
 
 processResources.dependsOn copyFrontend
