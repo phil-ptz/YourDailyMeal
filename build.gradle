@@ -45,14 +45,17 @@ import java.io.ByteArrayOutputStream
 task buildFrontend {
     def npmPath = new ByteArrayOutputStream()
 
-    exec {
-        commandLine 'which', 'npm'
-        standardOutput = npmPath
-    }
+    def npm = ''
 
-    def npm = npmPath.toString().trim()
-    if (!file(npm).exists()) {
-        throw new Exception("npm wurde nicht gefunden unter: ${npm}")
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        npm = 'npm.cmd'
+    } else {
+        exec {
+            commandLine 'which', 'npm'
+            standardOutput = npmPath
+        }
+
+        npm = npmPath.toString().trim()
     }
 
     doLast {
