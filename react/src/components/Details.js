@@ -1,5 +1,5 @@
 import React from "react";
-import "./Details.css";
+import "../stylesheet.css";
 
 const Details = ({ meal, onClose }) => {
     if (!meal) return null;
@@ -14,7 +14,7 @@ const Details = ({ meal, onClose }) => {
                 <p><strong>Herkunft:</strong> {meal.strArea}</p>
                 <p><strong>Zubereitung:</strong></p>
                 <p>{meal.strInstructions}</p>
-                <a href={meal.strYoutube} target="_blank" rel="noreferrer">Auf YouTube ansehen</a>
+                <a className="meal-link" href={meal.strYoutube} target="_blank" rel="noreferrer">Auf YouTube ansehen</a>
             </div>
         </div>
     );

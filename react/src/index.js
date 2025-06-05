@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './index.css';
+import './stylesheet.css';
 
 import Header from "./components/Header";
 import Meal from "./components/Meal";

@@ -1,12 +1,210 @@
-.recipe {
-    background-color: #282c34;
-    text-align: center;
-    color: white;
-    display: flex;
-    min-height: 100vh;
-    padding: 50px;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Meal.css */
+.meal-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff8f4;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.meal-title {
+    font-size: 2.5rem;
+    color: #ff7e5f;
+    margin-bottom: 1rem;
+}
+
+.meal-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.meal-info {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.meal-instructions {
+    margin-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.meal-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #ff7e5f;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.meal-link:hover {
+    background-color: #feb47b;
+    transform: scale(1.05);
+}
+
+.meal-loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    color: #ff7e5f;
+}
+
+/* History.css */
+.history-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff8f4;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history-title {
+    font-size: 2.5rem;
+    color: #ff7e5f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.meal-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.meal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.meal-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.meal-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+.meal-card-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Header.css */
 .header {
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.header-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.history-button {
+    background-color: white;
+    color: #ff7e5f;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-button:hover {
+    background-color: #ffe3d0;
+    transform: scale(1.05);
+}
+
+.details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.details-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.details-img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.details-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }

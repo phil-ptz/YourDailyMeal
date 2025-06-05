@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./History.css";
+import "../stylesheet.css";
 import Details from "./Details";
 
 const History = () => {
