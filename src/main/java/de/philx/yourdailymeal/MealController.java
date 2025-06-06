@@ -15,6 +15,8 @@ import java.time.LocalDate;
 
 import java.util.List;
 
+// Controller für Laden und Speicherung der Meals
+
 @RestController
 @RequestMapping("/api/recipes")
 public class MealController {

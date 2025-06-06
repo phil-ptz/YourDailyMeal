@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
 
-
+// Datenklasse für ein Meal
 @Data
 @Entity
 public class Meal {
